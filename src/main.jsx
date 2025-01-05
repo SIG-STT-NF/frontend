@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "@/App.jsx";
 
-import "@/index.css";
+import "@/styles/globals.css";
 
 // Fonts from Fontsource (Inter)
 import "@fontsource-variable/inter";

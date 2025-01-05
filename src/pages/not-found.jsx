@@ -1,7 +1,7 @@
 import BaseLayout from "@/layouts/base.layout";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-export default function ErrorPage() {
+export default function NotFound() {
   const error = useRouteError();
 
   let errorPage;
