@@ -22,9 +22,9 @@ export default function About() {
     {
       name: "Aliyah Qulbinisa S",
       role: "Data Engineer",
-      picture: "https://avatars.githubusercontent.com/fakhirula",
-      github: "https://github.com/fakhirula",
-      instagram: "https://instagram.com/fakhirula",
+      picture: "./images/profile-liya.jpg",
+      github: "",
+      instagram: "https://instagram.com/allyhayya_",
     },
     {
       name: "Nelan",
