@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="py-4">
       <div className="text-center">
         <p>
-          Made with 💖 and 🍵- Fakhirul Akmal & Team Corps &copy;{currentYear}
+          Made with 💖 and 🍵- Fakhirul Akmal & Team Corp &copy;{currentYear}
         </p>
       </div>
     </footer>

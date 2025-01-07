@@ -10,6 +10,11 @@ import NotFound from "@/pages/not-found";
 import Provinces from "@/pages/provinces";
 import Regencies from "@/pages/regencies";
 import Thematic from "@/pages/thematic";
+import ThematicPopulation from "@/pages/thematic-population";
+import ThematicLandArea from "@/pages/thematic-land-area";
+import ThematicPlantedArea from "@/pages/thematic-planted-area";
+import ThematicPestIncidence from "@/pages/thematic-pest-incidence";
+import ThematicProduction from "@/pages/thematic-production";
 
 // Configure leaflet css
 import "leaflet/dist/leaflet.css";
@@ -38,6 +43,28 @@ const router = createBrowserRouter([
       {
         path: "thematic",
         element: <Thematic />,
+        children: [
+          {
+            path: "population",
+            element: <ThematicPopulation />,
+          },
+          {
+            path: "land-area",
+            element: <ThematicLandArea />,
+          },
+          {
+            path: "plant-area",
+            element: <ThematicPlantedArea />,
+          },
+          {
+            path: "pest-incidence",
+            element: <ThematicPestIncidence />,
+          },
+          {
+            path: "production",
+            element: <ThematicProduction />,
+          },
+        ],
       },
       {
         path: "*",

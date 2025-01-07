@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, Marker, Popup } from "react-leaflet";
 import { LoaderIcon } from "lucide-react";
 
 import { useRegencies } from "@/hooks";
 import BaseLayout from "@/layouts/base.layout";
+import ReusableMapTile from "@/components/shared/reusable-map-tile";
+import { dataLayers } from "@/data/data-layers";
 
 export default function Regencies() {
   const [defaultsOptionsMap] = useState({
@@ -11,6 +13,20 @@ export default function Regencies() {
     zoom: 4.85,
     scrollWheelZoom: false,
   });
+
+  // Customizable layers
+  const [layers] = useState(dataLayers);
+
+  const [layer, setLayer] = useState({
+    name: "OpenStreetMap",
+    attribution: "OpenStreetMap",
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  });
+
+  const handleLayerChange = (e) => {
+    const selectedLayer = layers.find((layer) => layer.url === e.target.value);
+    setLayer(selectedLayer);
+  };
 
   const {
     data: regencies,
@@ -36,13 +52,9 @@ export default function Regencies() {
         center={defaultsOptionsMap.center}
         zoom={defaultsOptionsMap.zoom}
         scrollWheelZoom={defaultsOptionsMap.scrollWheelZoom}
-        className="h-[480px] rounded-md "
+        className="h-[480px] rounded-md z-0"
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-
+        <ReusableMapTile attribution={layer.attribution} url={layer.url} />
         {regencies.map((regency) => (
           <Marker
             key={regency.id}
@@ -83,7 +95,27 @@ export default function Regencies() {
               </a>
             </p>
           </div>
-          <div>{regenciesContent}</div>
+
+          <div className="space-y-6">
+            <div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="layer">Pilih tema peta:</label>
+                <select
+                  id="layer"
+                  value={layer.url}
+                  onChange={handleLayerChange}
+                  className="p-2 border rounded-lg focus:outline-none ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                >
+                  {layers.map((layer) => (
+                    <option key={layer.name} value={layer.url}>
+                      {layer.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div>{regenciesContent}</div>
+          </div>
         </div>
       </section>
     </BaseLayout>
