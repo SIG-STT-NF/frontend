@@ -1,5 +1,4 @@
 import api from "@/api";
-import { getProvinces } from "./provinces";
 
 export const getRegencies = async () => {
   try {
