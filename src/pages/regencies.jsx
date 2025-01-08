@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { MapContainer, Marker, Popup } from "react-leaflet";
 import { LoaderIcon } from "lucide-react";
+import { Icon } from "leaflet";
 
+import { dataLayers } from "@/data/data-layers";
 import { useRegencies } from "@/hooks";
+
 import BaseLayout from "@/layouts/base.layout";
 import ReusableMapTile from "@/components/shared/reusable-map-tile";
-import { dataLayers } from "@/data/data-layers";
 
 export default function Regencies() {
   const [defaultsOptionsMap] = useState({
@@ -27,6 +29,18 @@ export default function Regencies() {
     const selectedLayer = layers.find((layer) => layer.url === e.target.value);
     setLayer(selectedLayer);
   };
+
+  // Custom Icon
+  const mapPinIcon = new Icon({
+    iconUrl:
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
+    shadowUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+    iconSize: [20, 32],
+    iconAnchor: [12, 32],
+    popupAnchor: [1, -34],
+    shadowSize: [32, 32],
+  });
 
   const {
     data: regencies,
@@ -59,6 +73,7 @@ export default function Regencies() {
           <Marker
             key={regency.id}
             position={[regency.latitude, regency.longitude]}
+            icon={mapPinIcon}
           >
             <Popup>{regency.name}</Popup>
           </Marker>
