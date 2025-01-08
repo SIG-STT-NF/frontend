@@ -47,7 +47,7 @@ export default function ThematicPestIncidence() {
         feature.properties.name
       }</b><br>Indeks Penyakit / Hama: ${Math.floor(
         feature.properties.pest_incidence
-      )} / ha`
+      )} %`
     );
     layer.on({
       mouseover: () => {
@@ -125,8 +125,7 @@ const LegendContent = () => {
           }}
         ></i>
         <span style={{ margin: "0 0.5em" }}>
-          {from}
-          {to ? ` - ${to}` : "+"}
+          {from} {to ? ` - ${to}` : "+"}
         </span>
         <br />
       </>
