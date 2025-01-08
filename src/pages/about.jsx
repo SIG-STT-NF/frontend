@@ -17,7 +17,7 @@ export default function About() {
       role: "DevOps Engineer",
       picture: "https://avatars.githubusercontent.com/nullsec45",
       github: "https://github.com/nullsec45",
-      instagram: "https://instagram.com/fakhirula",
+      instagram: "https://instagram.com/fjrrama45",
     },
     {
       name: "Aliyah Qulbinisa S",
