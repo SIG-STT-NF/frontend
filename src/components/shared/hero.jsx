@@ -2,11 +2,11 @@ export default function Hero() {
   return (
     <div className="grid items-center gap-6 md:grid-cols-2">
       <img
-        src="./images/globe-indonesia.jpg"
-        className="w-full rounded-lg shadow-2xl md:max-w-lg"
+        src="./images/hero.png"
+        className="w-full rounded-lg md:max-w-lg"
         loading="lazy"
       />
-      <div className="space-y-3">
+      <div className="space-y-6">
         <h1 className="text-2xl font-bold md:text-4xl">
           Sistem Informasi Geografis
         </h1>
