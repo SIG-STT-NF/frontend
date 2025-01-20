@@ -59,12 +59,12 @@ export default function About() {
                   <h2>{profile.role}</h2>
                 </div>
                 <div className="flex flex-row gap-4">
-                  <Link to={profile.github}>
+                  <Link to={profile.github} target="_blank">
                     <div className="p-3 transition-all duration-150 ease-in border rounded-md hover:bg-slate-100">
                       <GithubIcon className="w-4 h-4" />
                     </div>
                   </Link>
-                  <Link to={profile.instagram}>
+                  <Link to={profile.instagram} target="_blank">
                     <div className="p-3 transition-all duration-150 ease-in border rounded-md hover:bg-slate-100">
                       <InstagramIcon className="w-4 h-4" />
                     </div>
